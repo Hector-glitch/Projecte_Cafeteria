@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.hector.projectecafeteria"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -43,6 +43,7 @@ dependencies {
 
     val nav_version = "2.7.5"
     val lifecycle_version = "2.6.2"
+    val glide_version = "4.16.0"
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -64,4 +65,7 @@ dependencies {
 
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+
+    //Glide Images
+    implementation("com.github.bumptech.glide:glide:${glide_version}")
 }

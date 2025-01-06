@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-  
+
+    <item
+        android:id="@+id/menjarIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_lunch_dining_24"
+        android:title="@string/menjar" />
+
+    <item
+        android:id="@+id/begudesIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_local_cafe_24"
+        android:title="@string/begudes" />
+
+    <item
+        android:id="@+id/postresIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_icecream_24"
+        android:title="@string/postres" />
+
+    <item
+        android:id="@+id/pagamentIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_attach_money_24"
+        android:title="@string/pagament" />
 </menu>

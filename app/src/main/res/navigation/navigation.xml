@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/menjarFragment">
 
+    <fragment
+        android:id="@+id/menjarFragment"
+        android:name="com.hector.projectecafeteria.compres.menjarFragment.MenjarFragment"
+        android:label="fragment_menjar"
+        tools:layout="@layout/fragment_menjar" />
+    <fragment
+        android:id="@+id/begudesFragment"
+        android:name="com.hector.projectecafeteria.compres.begudesFragment.BegudesFragment"
+        android:label="fragment_begudes"
+        tools:layout="@layout/fragment_begudes" />
+    <fragment
+        android:id="@+id/postresFragment"
+        android:name="com.hector.projectecafeteria.compres.postresFragment.PostresFragment"
+        android:label="fragment_postres"
+        tools:layout="@layout/fragment_postres" />
+    <fragment
+        android:id="@+id/pagamentFragment"
+        android:name="com.hector.projectecafeteria.compres.pagamentFragment.PagamentFragment"
+        android:label="fragment_pagament"
+        tools:layout="@layout/fragment_pagament" />
 </navigation>

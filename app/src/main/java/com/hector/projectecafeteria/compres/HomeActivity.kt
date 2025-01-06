@@ -6,6 +6,7 @@ import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.hector.projectecafeteria.databinding.ActivityHomeBinding
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class HomeActivity : AppCompatActivity() {
 
@@ -13,6 +14,9 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Thread.sleep(3000)
+        installSplashScreen()
 
         val binding = ActivityHomeBinding.inflate(layoutInflater)
 

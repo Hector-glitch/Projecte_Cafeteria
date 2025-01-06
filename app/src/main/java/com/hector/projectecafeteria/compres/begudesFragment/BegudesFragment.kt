@@ -5,56 +5,38 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.hector.projectecafeteria.R
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.hector.projectecafeteria.compres.OrderSharedViewModel
+import com.hector.projectecafeteria.databinding.FragmentBegudesBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [BegudesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class BegudesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val viewModel: BegudesViewModel by viewModels()
+    private lateinit var binding: FragmentBegudesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_begudes, container, false)
+        binding = FragmentBegudesBinding.inflate(inflater)
+        val drinkRecyclerView = binding.begudaReciclerView
+
+        drinkRecyclerView.layoutManager = LinearLayoutManager(context)
+        drinkRecyclerView.setHasFixedSize(true)
+
+        val sharedViewModel: OrderSharedViewModel = ViewModelProvider(requireActivity()).get(
+            OrderSharedViewModel::class.java)
+
+        viewModel.getBegudes()
+        viewModel.begudes.observe(viewLifecycleOwner) { drinksList ->
+            val drinkAdapter = BegudesAdapter(requireContext(), drinksList, sharedViewModel)
+            drinkRecyclerView.adapter = drinkAdapter
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment BegudesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            BegudesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

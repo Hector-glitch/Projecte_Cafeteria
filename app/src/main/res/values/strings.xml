@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Projecte Cafeteria</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="total">total</string>
+    <string name="contrasenya">Contrasenya</string>
+    <string name="nom">Nom</string>
+    <string name="inici_de_sessio">INICI DE SESSIO</string>
+    <string name="iniciar_sessio">Iniciar sessio</string>
+    <string name="registrar_se">Registrar-se</string>
+    <string name="pagament">Pagament</string>
+    <string name="postres">Postres</string>
+    <string name="begudes">Begudes</string>
+    <string name="menjar">Menjar</string>
 </resources>

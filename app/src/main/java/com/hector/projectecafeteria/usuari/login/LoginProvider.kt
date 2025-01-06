@@ -5,19 +5,19 @@ class LoginProvider {
         fun loadLogins(): MutableList<LoginModel> {
             return mutableListOf<LoginModel>(
                 LoginModel(
-                    "pepe@gmail.com",
+                    "pepe",
                     "pepe1234"
                 ),
                 LoginModel(
-                    "jose@gmail.com",
+                    "jose",
                     "jose1234"
                 ),
                 LoginModel(
-                    "adria@gmail.com",
+                    "adria",
                     "adria1234"
                 ),
                 LoginModel(
-                    "pau@gmail.com",
+                    "pau",
                     "pau1234"
                 ),
                 LoginModel(
