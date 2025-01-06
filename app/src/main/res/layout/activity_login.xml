@@ -2,22 +2,13 @@
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".usuari.login.LoginActivity">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/registerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="@string/registrar_se"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/LoginButton" />
+        tools:context=".usuari.login.LoginActivity"
+        android:background="@color/background">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/TitolLogin"
@@ -26,6 +17,7 @@
             android:layout_marginTop="76dp"
             android:text="@string/inici_de_sessio"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +37,8 @@
                 android:id="@+id/InputNom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nom" />
+                android:hint="@string/nom"
+                android:textColor="@color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -62,7 +55,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/contrasenya"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -71,6 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
             android:text="@string/iniciar_sessio"
+            android:textColorLink="#EAFFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/InputPasswordLayout" />

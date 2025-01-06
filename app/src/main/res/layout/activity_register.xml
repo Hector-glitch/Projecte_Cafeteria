@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".usuari.register.RegisterActivity">
+        tools:context=".usuari.register.RegisterActivity"
+        android:background="@color/background">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/TitolRegister"
@@ -15,6 +16,7 @@
             android:layout_marginTop="76dp"
             android:text="REGISTRE"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +36,8 @@
                 android:id="@+id/InputNom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nom" />
+                android:hint="@string/nom"
+                android:textColor="@color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -51,7 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/contrasenya"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
