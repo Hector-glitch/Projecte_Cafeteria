@@ -9,7 +9,11 @@ import com.hector.projectecafeteria.compres.pagamentFragment.Item
 import com.hector.projectecafeteria.databinding.ItemPostreBinding
 import com.bumptech.glide.Glide
 
-class PostresAdapter (val context: Context, val dataset: List<Postres>, private val sharedViewModel: OrderSharedViewModel) :
+class PostresAdapter(
+    val context: Context,
+    val dataset: List<Postres>,
+    private val sharedViewModel: OrderSharedViewModel
+) :
     RecyclerView.Adapter<PostresAdapter.PostresViewHolder>() {
 
     inner class PostresViewHolder(private val binding: ItemPostreBinding) :
@@ -20,14 +24,25 @@ class PostresAdapter (val context: Context, val dataset: List<Postres>, private 
             val priceWithCurrency = postres.price.toString() + "€"
             binding.textViewPostresPreu.text = priceWithCurrency
             binding.textViewPostresDesc.text = postres.description
-            Glide.with(binding.imageViewPostres.context).load(postres.photo).into(binding.imageViewPostres)
-            binding.addPostresButton.setOnClickListener{
-                sharedViewModel.addElementToOrder(Item(postres.name, postres.price, postres.description, postres.photo))
+            Glide.with(binding.imageViewPostres.context).load(postres.photo)
+                .into(binding.imageViewPostres)
+            binding.addPostresButton.setOnClickListener {
+                sharedViewModel.addElementToOrder(
+                    Item(
+                        postres.name,
+                        postres.price,
+                        postres.description,
+                        postres.photo
+                    )
+                )
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostresAdapter.PostresViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): PostresAdapter.PostresViewHolder {
         val itemBinding = ItemPostreBinding.inflate(LayoutInflater.from(context), parent, false)
         return PostresViewHolder(itemBinding)
     }

@@ -22,7 +22,8 @@ class HomeActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(binding.fragmentContainerViewTag.id) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(binding.fragmentContainerViewTag.id) as NavHostFragment
         navController = navHostFragment.navController
 
         val bottomNavigationView = binding.bottomMenuView

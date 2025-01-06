@@ -28,7 +28,8 @@ class BegudesFragment : Fragment() {
         drinkRecyclerView.setHasFixedSize(true)
 
         val sharedViewModel: OrderSharedViewModel = ViewModelProvider(requireActivity()).get(
-            OrderSharedViewModel::class.java)
+            OrderSharedViewModel::class.java
+        )
 
         viewModel.getBegudes()
         viewModel.begudes.observe(viewLifecycleOwner) { drinksList ->

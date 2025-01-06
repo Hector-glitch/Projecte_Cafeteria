@@ -8,8 +8,11 @@ import com.hector.projectecafeteria.compres.OrderSharedViewModel
 import com.hector.projectecafeteria.databinding.ItemBinding
 import com.bumptech.glide.Glide
 
-class ItemAdapter(val context: Context, val orderDataset: List<Item>, private val sharedViewModel: OrderSharedViewModel)
-    : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
+class ItemAdapter(
+    val context: Context,
+    val orderDataset: List<Item>,
+    private val sharedViewModel: OrderSharedViewModel
+) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(private val binding: ItemBinding) :
         RecyclerView.ViewHolder(binding.root) {

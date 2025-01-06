@@ -9,7 +9,11 @@ import com.hector.projectecafeteria.compres.pagamentFragment.Item
 import com.hector.projectecafeteria.databinding.ItemMenjarBinding
 import com.bumptech.glide.Glide
 
-class MenjarAdapter (val context: Context, val dataset: List<Menjar>, private val sharedViewModel: OrderSharedViewModel) :
+class MenjarAdapter(
+    val context: Context,
+    val dataset: List<Menjar>,
+    private val sharedViewModel: OrderSharedViewModel
+) :
     RecyclerView.Adapter<MenjarAdapter.MenjarViewHolder>() {
 
     inner class MenjarViewHolder(private val binding: ItemMenjarBinding) :
@@ -20,14 +24,25 @@ class MenjarAdapter (val context: Context, val dataset: List<Menjar>, private va
             val priceWithCurrency = menjar.price.toString() + "€"
             binding.textViewMenjarPreu.text = priceWithCurrency
             binding.textViewMenjarDesc.text = menjar.description
-            Glide.with(binding.imageViewMenjar.context).load(menjar.photo).into(binding.imageViewMenjar)
-            binding.addMenjarButton.setOnClickListener{
-                sharedViewModel.addElementToOrder(Item(menjar.name, menjar.price, menjar.description, menjar.photo))
+            Glide.with(binding.imageViewMenjar.context).load(menjar.photo)
+                .into(binding.imageViewMenjar)
+            binding.addMenjarButton.setOnClickListener {
+                sharedViewModel.addElementToOrder(
+                    Item(
+                        menjar.name,
+                        menjar.price,
+                        menjar.description,
+                        menjar.photo
+                    )
+                )
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenjarAdapter.MenjarViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): MenjarAdapter.MenjarViewHolder {
         val itemBinding = ItemMenjarBinding.inflate(LayoutInflater.from(context), parent, false)
         return MenjarViewHolder(itemBinding)
     }

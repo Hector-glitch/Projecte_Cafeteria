@@ -26,7 +26,8 @@ class MenjarFragment : Fragment() {
         mealRecyclerView.setHasFixedSize(true)
 
         val sharedViewModel: OrderSharedViewModel = ViewModelProvider(requireActivity()).get(
-            OrderSharedViewModel::class.java)
+            OrderSharedViewModel::class.java
+        )
 
         viewModel.getMenjars()
         viewModel.menjar.observe(viewLifecycleOwner) { menjarList ->

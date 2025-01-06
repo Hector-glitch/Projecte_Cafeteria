@@ -26,7 +26,8 @@ class PostresFragment : Fragment() {
         postresRecyclerView.setHasFixedSize(true)
 
         val sharedViewModel: OrderSharedViewModel = ViewModelProvider(requireActivity()).get(
-            OrderSharedViewModel::class.java)
+            OrderSharedViewModel::class.java
+        )
 
         viewModel.getPostres()
         viewModel.postres.observe(viewLifecycleOwner) { postresList ->

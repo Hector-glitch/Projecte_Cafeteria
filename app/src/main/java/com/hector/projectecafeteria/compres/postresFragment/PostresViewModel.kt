@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class PostresViewModel: ViewModel() {
+class PostresViewModel : ViewModel() {
 
     private val _postres = MutableLiveData<List<Postres>>()
     val postres: LiveData<List<Postres>> = _postres
