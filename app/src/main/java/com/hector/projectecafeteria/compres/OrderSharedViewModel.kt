@@ -6,26 +6,25 @@ import androidx.lifecycle.ViewModel
 import com.hector.projectecafeteria.compres.pagamentFragment.Item
 
 class OrderSharedViewModel : ViewModel() {
-    var customerOrder = mutableListOf<Item>()
-    var total: Double = 0.0
 
-    private val _order = MutableLiveData<MutableList<Item>>()
-    val order: LiveData<MutableList<Item>> = _order
+    private val _customerOrder = mutableListOf<Item>()
+    private val _total = MutableLiveData<Double>()
+    val total: LiveData<Double> get() = _total
 
+    private val _order = MutableLiveData<List<Item>>()
+    val order: LiveData<List<Item>> get() = _order
 
     fun getOrder() {
-        _order.value = customerOrder
+        _order.value = _customerOrder
     }
 
     fun addElementToOrder(element: Item) {
-        customerOrder.add(element)
+        _customerOrder.add(element)
+        calculateTotal()
     }
 
     fun calculateTotal() {
-        total = 0.0
-
-        for (element: Item in customerOrder) {
-            total += element.price
-        }
+        val newTotal = _customerOrder.sumOf { it.price }
+        _total.value = newTotal
     }
 }

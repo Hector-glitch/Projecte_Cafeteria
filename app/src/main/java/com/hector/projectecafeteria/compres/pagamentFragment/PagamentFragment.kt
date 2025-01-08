@@ -29,6 +29,9 @@ class PagamentFragment : Fragment() {
         val sharedViewModel: OrderSharedViewModel =
             ViewModelProvider(requireActivity())[OrderSharedViewModel::class.java]
 
+        // Connecta PagamentViewModel amb OrderSharedViewModel
+        viewModel.bindToOrderSharedViewModel(sharedViewModel)
+
         val combinedRecyclerView = binding.combinedRecyclerView
         combinedRecyclerView.layoutManager = LinearLayoutManager(context)
         combinedRecyclerView.setHasFixedSize(true)
@@ -39,11 +42,11 @@ class PagamentFragment : Fragment() {
 
             val itemAdapter = ItemAdapter(requireContext(), orderList, sharedViewModel)
             combinedRecyclerView.adapter = itemAdapter
+        }
 
-            viewModel.getTotal(sharedViewModel)
-            viewModel.total.observe(viewLifecycleOwner) { comandaTotal ->
-                totalTextView.text = getString(R.string.total, "%.2f".format(comandaTotal))
-            }
+        // Observa el total i actualitza el TextView
+        viewModel.total.observe(viewLifecycleOwner) { comandaTotal ->
+            totalTextView.text = getString(R.string.total, "%.2f".format(comandaTotal))
         }
 
         return binding.root

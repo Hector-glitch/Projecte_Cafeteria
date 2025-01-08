@@ -7,12 +7,9 @@ import com.hector.projectecafeteria.compres.OrderSharedViewModel
 
 class PagamentViewModel : ViewModel() {
 
-    private val _total = MutableLiveData<Double>()
-    val total: LiveData<Double> = _total
+    lateinit var total: LiveData<Double>
 
-    fun getTotal(orderSharedViewModel: OrderSharedViewModel) {
-        orderSharedViewModel.calculateTotal()
-
-        _total.value = orderSharedViewModel.total
+    fun bindToOrderSharedViewModel(orderSharedViewModel: OrderSharedViewModel) {
+        total = orderSharedViewModel.total
     }
 }
